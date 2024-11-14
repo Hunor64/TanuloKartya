@@ -7,12 +7,16 @@ const App = () => {
 	const [flashcards, setFlashcards] = useState<FlashcardType[]>(sampleData)
 
 	const fetchQuestions = async () => {
-		const data = await fetch("https://opentdb.com/api.php?amount=10").then(
-			(res) => res.json()
-		)
-    if (data.results) {
-      setFlashcards(data.results)
-    }
+		try {
+			const data = await fetch(
+				"https://opentdb.com/api.php?amount=10"
+			).then((res) => res.json())
+			if (data.results) {
+				setFlashcards(data.results)
+			}
+		} catch (error) {
+			console.error(error)
+		}
 	}
 	fetchQuestions()
 	return (
