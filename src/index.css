@@ -1,0 +1,36 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+}
+
+.card{
+  background-color: antiquewhite;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  margin: 10px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  position: relative;
+}
+.card:hover{
+  transform: rotateY(180deg);
+}
+
+.front, .back{
+  position: absolute;
+  backface-visibility: hidden;
+}
+.back{
+  transform: rotateY(180deg);
+}
